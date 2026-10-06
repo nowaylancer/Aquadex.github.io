@@ -1,0 +1,96 @@
+body {
+            background: #0a1424;
+            color: #e7f1f8;
+            font-family: sans-serif;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            /* ซ้ายยืดได้ | ขวากว้าง 400px */
+            gap: 20px;
+            align-items: start;
+        }
+
+            #detail {
+            background: #ff6a4d;        /* ตัวเครื่องสีแดงส้ม */
+            border-radius: 16px;
+            padding: 16px;
+            color: #0a1424;
+            position: sticky;           /* เลื่อนหน้าแล้วกล่องนี้ยังค้างอยู่ */
+            top: 16px;
+            
+            #viewer { position: relative; }
+            #prev, #next {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 36px; height: 36px; border-radius: 50%; border: 0;
+            background: #0a1424cc; color: white; font-size: 20px; cursor: pointer;
+            }
+            #prev { left: 8px; }
+            #next { right: 8px; }
+
+            }
+            #close { display: none; }          /* ข้างนอก @media: ซ่อนไว้ก่อนทุกจอ */
+            @media (max-width: 800px) {
+            main { grid-template-columns: 1fr; }
+            #close { display: block; }       /* ข้างใน @media: จอแคบให้โชว์ */
+
+            #detail {
+            position: fixed;              /* ลอยทับหน้าจอ ไม่เลื่อนตามหน้า */
+            left: 0; right: 0; bottom: 0;
+            max-height: 80vh;             /* สูงสุด 80% ของจอ */
+            overflow-y: auto;
+            border-radius: 16px 16px 0 0;
+            transform: translateY(100%);  /* ดันลงไปซ่อนใต้จอ */
+            transition: transform 0.3s;   /* ค่อย ๆ เลื่อนใน 0.3 วินาที */
+            }
+            #detail.open {
+            transform: translateY(0);     /* กลับมาตำแหน่งปกติ = โผล่ขึ้นมา */
+            }
+            } 
+
+            .status {
+            padding: 1px 6px; 
+            border-radius: 4px;
+            color: #0a1424; 
+            font-size: 12px;
+            }
+            .abilities { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+            .ability {
+            background: #0a1424; color: #fff;
+            padding: 4px 10px; border-radius: 999px; font-size: 13px;
+            }
+
+            .facts {
+                display: grid;
+                grid-template-columns: auto 1fr;   /* หัวข้อ | ค่า */
+                gap: 4px 12px;
+                margin: 12px 0 0;
+            }
+.facts dd { margin: 0; font-weight: bold; }
+
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
+        }
+
+        .card {
+            background: #14263f;
+            border: 1px solid #27446a;
+            border-radius: 12px;
+            padding: 12px;
+        }
+        .card-img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; }
+.big      { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 10px; }
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  background: #0a1424;
+  color: #27446a;
+  font-size: 48px;
+  font-weight: bold;
+}
+        #thumbs { display: flex; gap: 6px; margin-top: 6px; }
+        .thumb { width: 60px; height: 45px; object-fit: cover; border-radius: 6px; cursor: pointer; }

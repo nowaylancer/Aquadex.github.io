@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AquaDex</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>AquaDex</h1>
+    <h2>ปลา</h2>
+    <p>ดัชนีสัตว์ทะเล</p>
+    <input id="search" type="search" placeholder="ค้นหาชื่อสัตว์">
+    <nav id="chips">
+    <button data-cat="ทั้งหมด">ทั้งหมด</button>
+    <button data-cat="ปลาทะเล">ปลาทะเล</button>
+    <button data-cat="ฉลาม">ฉลาม</button>
+    <button data-cat="ปลากระเบน">ปลากระเบน</button>
+    <button data-cat="สัตว์ไม่มีกระดูกสันหลัง">สัตว์ไม่มีกระดูกสันหลัง</button>
+    </nav>
+    <main id="card-list">
+        <section id="grid"></section>
+        <aside id="detail">
+          <div id="viewer">
+            <button id="prev">‹</button>
+            <img id="big" src="${e.imgs[0]}">
+            <button id="next">›</button>
+          </div>
+          <p>รายละเอียดจะอยู่ตรงนี้</p>
+        </aside>
+    </main>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
